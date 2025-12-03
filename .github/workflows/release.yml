@@ -12,13 +12,13 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Zip Folder
-      run: zip -r "Sprites Animados DBK_V${{github.ref_name}}.zip" . -i "Plugins/*" "Graphics/*" "PBS/*"
+      run: zip -r "Sprites Animados DBK.zip" . -i "Plugins/*" "Graphics/*" "PBS/*"
 
     - name: Release
       uses: softprops/action-gh-release@v2
       if: startsWith(github.ref, 'refs/tags/')
       with:
-        files: "Sprites Animados DBK_V${{github.ref_name}}.zip"
+        files: "Sprites Animados DBK.zip"
         generate_release_notes: true
         make_latest: true
         token: ${{ secrets.RELEASE_TOKEN_PLUGINS }}
